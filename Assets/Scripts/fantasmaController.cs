@@ -92,5 +92,14 @@ public class fantasmaController : MonoBehaviour
                 contador = System.DateTime.Now;
             }
         }
+
+        //si es la luz
+        if (other.gameObject.name == "Luz"){
+            //ocultamos
+            ChangeAlpha(this.GetComponent<Renderer>().material, 0f);
+
+            //destruimos
+            Destroy(this);
+        }
      }
 }
