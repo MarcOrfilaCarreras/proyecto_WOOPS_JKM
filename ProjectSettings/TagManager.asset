@@ -4,14 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Enemy
+  - PickUp
   - PlataformaMovi
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
+  - PostProcessing
   - Ground
   - 
   - 
