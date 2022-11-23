@@ -172,7 +172,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-
     "com.unity.postprocessing": {
       "version": "3.2.2",
       "depth": 0,
@@ -180,7 +179,8 @@
       "dependencies": {
         "com.unity.modules.physics": "1.0.0"
       },
-
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "12.1.7",
       "depth": 1,
@@ -207,7 +207,6 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
-
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
