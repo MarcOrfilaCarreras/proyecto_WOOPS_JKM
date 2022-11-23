@@ -63,5 +63,9 @@ GraphicsSettings:
   m_LightsUseColorTemperature: 1
   m_DefaultRenderingLayerMask: 1
   m_LogWhenShaderIsCompiled: 0
+<<<<<<< HEAD
   m_SRPDefaultSettings:
     UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: 9bd309465a898714f96dd1a47fca386a, type: 2}
+=======
+  m_SRPDefaultSettings: {}
+>>>>>>> rama_marc
