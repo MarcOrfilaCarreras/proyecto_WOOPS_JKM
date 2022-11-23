@@ -47,7 +47,7 @@ public class EnemyReaction : MonoBehaviour {
         }
   // Update is called once per frame
         void Update () {
-        	if (transform.position.y < -30 || Input.GetKeyDown("r")){ 
+        	if (/*transform.position.y < -30 ||*/ Input.GetKeyDown("r")){ 
     		TeleportHome(Home);//If player falls out of the plane or R, TP -> COORDS HOME
     	}
     	horizontalMovement = Input.GetAxisRaw("Horizontal");
