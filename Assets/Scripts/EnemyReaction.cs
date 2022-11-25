@@ -8,12 +8,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class EnemyReaction : MonoBehaviour {
   	// Use this for initialization
-	private Vector2 Home = new Vector2(-12,1.5f);
+	private Vector2 Home;
 	public int count = 0;
 	public Camera MainCamera;
 	public CinemachineVirtualCamera vcam; //to assign cam
 	private Light Light;
 	float numVignette;
+	
         private Animator m_Anim;            // Reference to the player's animator component.
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
@@ -34,6 +35,7 @@ public class EnemyReaction : MonoBehaviour {
         //private Vector2 touchOrigin = -Vector2.one;//Used to store location of screen touch origin for mobile controls.
 
         void Start () {
+        	Home = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         	print("Hello World!");
         	rb2D = GetComponent<Rigidbody2D>();
         	Light = GetComponent<Light>();
@@ -46,7 +48,8 @@ public class EnemyReaction : MonoBehaviour {
         }
   // Update is called once per frame
         void Update () {
-        	if (transform.position.y < -30 || Input.GetKeyDown("r")){ 
+
+        	if (/*transform.position.y < -30 ||*/ Input.GetKeyDown("r")){ 
     		TeleportHome(Home);//If player falls out of the plane or R, TP -> COORDS HOME
     	}
     	horizontalMovement = Input.GetAxisRaw("Horizontal");
@@ -109,10 +112,10 @@ public class EnemyReaction : MonoBehaviour {
 		    }
 		    }else if (other.CompareTag("Finish")){
 		    	float num = 1f;
-	    	Light.intensity = 0.05f;
-	    	Light.range = 0.05f;
-	    	MainCamera.GetComponent<CameraController>().ModifyVignette(num, false);
-	    	SpawnPointCheck(other.transform.position);
+		    	Light.intensity = 0.05f;
+		    	Light.range = 0.05f;
+		    	MainCamera.GetComponent<CameraController>().ModifyVignette(num, false);
+		    	SpawnPointCheck(other.transform.position);
 	    	vcam.m_Lens.OrthographicSize = 6; //to access cam, Lens and then OrthograhicSize
 
 		    	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
@@ -134,6 +137,7 @@ public class EnemyReaction : MonoBehaviour {
 		}
 
 	}
+	
 	IEnumerator EnterHouse(){
 		Light.intensity = Light.intensity -(0.015f * count);
 		Light.range = Light.range - 0.05f;
@@ -147,6 +151,7 @@ public class EnemyReaction : MonoBehaviour {
 		yield return new WaitForSeconds(0.25f);
 
 	}
+
 	private void Flip()
 	{
             // Switch the way the player is labelled as facing.
