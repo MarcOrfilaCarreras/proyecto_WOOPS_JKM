@@ -8,7 +8,7 @@ public class linternaController : MonoBehaviour
     public GameObject luz;
     public float opacidad = 0.5f;
     public Button boton;
-    public float tiempoEncendida = 1;
+    public float tiempoEncendida = 3;
 
     //variables privadas
     private bool encendida = false;
