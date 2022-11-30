@@ -16,7 +16,7 @@ public class EnemyReaction : MonoBehaviour {
 	float numVignette;
 	
         private Animator m_Anim;            // Reference to the player's animator component.
-        private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+        public bool m_FacingRight = false;  // For determining which way the player is currently facing.
 
 
         [Header("Movement")]
@@ -38,7 +38,7 @@ public class EnemyReaction : MonoBehaviour {
         	Home = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         	print("Hello World!");
         	rb2D = GetComponent<Rigidbody2D>();
-        	Light = GetComponent<Light>();
+        	Light = GetComponent<Light>();	
         	m_Anim = GetComponent<Animator>();
         	Light.intensity = 0;
         	Light.range = 0.75f;
@@ -50,54 +50,54 @@ public class EnemyReaction : MonoBehaviour {
         void Update () {
 
         	if (/*transform.position.y < -30 ||*/ Input.GetKeyDown("r")){ 
-    		TeleportHome(Home);//If player falls out of the plane or R, TP -> COORDS HOME
-    	}
-    	horizontalMovement = Input.GetAxisRaw("Horizontal");
+    			TeleportHome(Home);//If player falls out of the plane or R, TP -> COORDS HOME
+    		}
+    		horizontalMovement = Input.GetAxisRaw("Horizontal");
 
-    	onGround = floorCollider.IsTouching(floorFilter);
-    	print("JustJumped:"+justJumped + " - onGround:"+onGround);
-    	if (!justJumped && Input.GetKeyDown(KeyCode.Space) && onGround && rb2D.velocity.y == 0){
-    		justJumped = true;
-    	}
-
-    }
-
-    void FixedUpdate(){
-    	rb2D.velocity = new Vector2(horizontalMovement * movementSpeed, rb2D.velocity.y);
-    	float h = CrossPlatformInputManager.GetAxis("Horizontal");
-    	print("H: "+h);
-    	m_Anim.SetFloat("Speed", Mathf.Abs(h));
-
-    	if(justJumped)
-    	{
-    		rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-    		m_Anim.SetBool("Ground", false);
-    		justJumped = false;
-    		if (rb2D.velocity.x == 0 && rb2D.velocity.y != 0 && onGround){
-    			justJumped = false;
+    		onGround = floorCollider.IsTouching(floorFilter);
+    		print("JustJumped:"+justJumped + " - onGround:"+onGround);
+    		if (!justJumped && Input.GetKeyDown(KeyCode.Space) && onGround && rb2D.velocity.y == 0){
+    			justJumped = true;
     		}
 
     	}
-    	m_Anim.SetBool("Ground", onGround);
+
+    	void FixedUpdate(){
+    		rb2D.velocity = new Vector2(horizontalMovement * movementSpeed, rb2D.velocity.y);
+
+			float h = CrossPlatformInputManager.GetAxis("Horizontal");
+
+    		m_Anim.SetFloat("Speed", Mathf.Abs(h));
+
+    		if(justJumped)
+    		{
+    			rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    			m_Anim.SetBool("Ground", false);
+    			justJumped = false;
+    			if (rb2D.velocity.x == 0 && rb2D.velocity.y != 0 && onGround){
+    				justJumped = false;
+    			}
+
+    		}
+    		m_Anim.SetBool("Ground", onGround);
 
             // Set the vertical animation
-    	m_Anim.SetFloat("vSpeed", rb2D.velocity.y);
+    		m_Anim.SetFloat("vSpeed", rb2D.velocity.y);
 
     	// If the input is moving the player and the player is facing the other direction -> FLIP
-    	print("m_FacingRight: " + m_FacingRight);
 
-    	if ((h > 0 && m_FacingRight) || h < 0 && !m_FacingRight){
-    		print("Flip");
-    		Flip();
-    	}     
-    }
-    void TeleportHome(Vector3 Home){
+    		if ((h > 0 && !m_FacingRight) || h < 0 && m_FacingRight){
+    			Flip();
+    		}     
+    	}
+    	void TeleportHome(Vector3 Home){
     	rb2D.velocity = Vector2.zero; //Freeze character 
 		transform.position = Home; //TP Sphere -> Home
 	}
 
   // This function is called every time another collider overlaps the trigger collider
 	void OnTriggerEnter2D (Collider2D other){
+		print("FUNCEIONAAAAAAAAAAS");
 		if (other.CompareTag ("Enemy")) {    // Checking if the overlapped collider is an enemy
 			print("ENEMY");
 			if (transform.position.y > (other.transform.position.y+0.6)){
@@ -109,7 +109,7 @@ public class EnemyReaction : MonoBehaviour {
     	}else if (other.CompareTag("PickUp")){ //Check if Collider has Tag "Pickup"
     	count++;
     	print("PickUp: "+count);
-		    other.gameObject.SetActive (false);//Hides Pickup
+		    other.gameObject.SetActive(false);//Hides Pickup
 		    PickUpLight(count);
 		    MainCamera.GetComponent<CameraController>().WhenPickUp(count);
 		    if (count % 5 == 0){

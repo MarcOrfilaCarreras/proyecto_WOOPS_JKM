@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class playerControls : MonoBehaviour
 {
@@ -34,7 +33,7 @@ public class playerControls : MonoBehaviour
 
         if (moveRight == true)
         {
-            rb.AddForce((transform.right * speed * Time.fixedDeltaTime * 100f), ForceMode2D.Force);
+            rb.AddForce((transform.right * speed * Time.fixedDeltaTime * 100f)* -1, ForceMode2D.Force);
         }
 
         if (moveUp == true)
@@ -45,16 +44,18 @@ public class playerControls : MonoBehaviour
 
     public void MoveLeft(bool _move)
     {
-        moveLeft = _move; 
+        moveLeft = _move;
+        transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     public void MoveRight(bool _move)
     {
-        moveRight = _move; 
+        moveRight = _move;
+        transform.eulerAngles = new Vector3(0, 180, 0);
     }
 
     public void MoveUp(bool _move)
     {
-        moveUp = _move; 
+        moveUp = _move;
     }
 }
