@@ -59,11 +59,13 @@ public class EnemyReaction : MonoBehaviour {
     	if (!justJumped && Input.GetKeyDown(KeyCode.Space) && onGround && rb2D.velocity.y == 0){
     		justJumped = true;
     	}
+
     }
 
     void FixedUpdate(){
     	rb2D.velocity = new Vector2(horizontalMovement * movementSpeed, rb2D.velocity.y);
     	float h = CrossPlatformInputManager.GetAxis("Horizontal");
+    	print("H: "+h);
     	m_Anim.SetFloat("Speed", Mathf.Abs(h));
 
     	if(justJumped)
@@ -82,7 +84,10 @@ public class EnemyReaction : MonoBehaviour {
     	m_Anim.SetFloat("vSpeed", rb2D.velocity.y);
 
     	// If the input is moving the player and the player is facing the other direction -> FLIP
-    	if ((h > 0 && !m_FacingRight) || h < 0 && m_FacingRight){
+    	print("m_FacingRight: " + m_FacingRight);
+
+    	if ((h > 0 && m_FacingRight) || h < 0 && !m_FacingRight){
+    		print("Flip");
     		Flip();
     	}     
     }
