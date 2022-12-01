@@ -97,7 +97,6 @@ public class EnemyReaction : MonoBehaviour {
 
   // This function is called every time another collider overlaps the trigger collider
 	void OnTriggerEnter2D (Collider2D other){
-		print("FUNCEIONAAAAAAAAAAS");
 		if (other.CompareTag ("Enemy")) {    // Checking if the overlapped collider is an enemy
 			print("ENEMY");
 			if (transform.position.y > (other.transform.position.y+0.6)){
@@ -127,6 +126,7 @@ public class EnemyReaction : MonoBehaviour {
 	    }	    	
 
 	}
+	
 	void SpawnPointCheck(Vector2 position){
 		Home = position;
 		print("Spawn point Updated to ("+position+")!");
