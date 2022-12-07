@@ -44,7 +44,7 @@
 				} else{
 					_Vignette.intensity.value = 1 - (0.05f * count); 
 				}
-				print("Vignette Intensity: "+ _Vignette.intensity.value );
+				//print("Vignette Intensity: "+ _Vignette.intensity.value );
 			}
 		}
 		public float ModifyVignette(float num, bool rounded){
