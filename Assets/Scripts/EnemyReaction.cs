@@ -5,7 +5,7 @@ using Cinemachine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityStandardAssets.CrossPlatformInput;
-
+using UnityEngine.SceneManagement;
 public class EnemyReaction : MonoBehaviour {
   	// Use this for initialization
 	private Vector2 Home;
@@ -65,7 +65,7 @@ public class EnemyReaction : MonoBehaviour {
     	void FixedUpdate(){
     		rb2D.velocity = new Vector2(horizontalMovement * movementSpeed, rb2D.velocity.y);
 
-			float h = CrossPlatformInputManager.GetAxis("Horizontal");
+    		float h = CrossPlatformInputManager.GetAxis("Horizontal");
 
     		m_Anim.SetFloat("Speed", Mathf.Abs(h));
 
@@ -84,8 +84,7 @@ public class EnemyReaction : MonoBehaviour {
             // Set the vertical animation
     		m_Anim.SetFloat("vSpeed", rb2D.velocity.y);
 
-    	// If the input is moving the player and the player is facing the other direction -> FLIP
-
+    		// If the input (KEYBOARD) is moving the player and the player is facing the other direction->FLIP
     		if ((h > 0 && !m_FacingRight) || h < 0 && m_FacingRight){
     			Flip();
     		}     
@@ -113,17 +112,19 @@ public class EnemyReaction : MonoBehaviour {
 		    MainCamera.GetComponent<CameraController>().WhenPickUp(count);
 		    if (count % 5 == 0){
 		    	SpawnPointCheck(other.transform.position);
-		    }
 		    }else if (other.CompareTag("Finish")){
-		    	float num = 1f;
-		    	Light.intensity = 0.05f;
-		    	Light.range = 0.05f;
+		    	if (count != 19){ //IF all Pickups hasn't been picked up yet
+		    	print("Not all pickups has been picked up yet");
+		    } else { 
+		    	float num = 1f; Light.intensity = 0.05f; Light.range = 0.05f;
 		    	MainCamera.GetComponent<CameraController>().ModifyVignette(num, false);
-		    	SpawnPointCheck(other.transform.position);
-	    	vcam.m_Lens.OrthographicSize = 6; //to access cam, Lens and then OrthograhicSize
+		    	SpawnPointCheck(other.transform.position); 
+		    	vcam.m_Lens.OrthographicSize = 6;
+				//to access cam, Lens and then OrthograhicSize
 
-		    	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
-	    }	    	
+		    	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
+		    }
+		}	    	
 
 	}
 	
