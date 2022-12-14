@@ -120,58 +120,44 @@ public class EnemyReaction : MonoBehaviour {
 		    if (count % 5 == 0){ //If count quantity is 5/10/15/20...
 		    	Home = other.transform.position;
 		    	print("Spawn point Updated to ("+other.transform.position+")!");
-
 		    }
 
-		    }else if (other.CompareTag("Finish")){
+		}
+		else if (other.CompareTag("Finish")){
 		    if (count >=  20){ //IF all Pickups hasn't been picked up yet
 		    float num = 1f; Light.intensity = 0.05f; Light.range = 0.05f;
 		    MainCamera.GetComponent<CameraController>().ModifyVignette(num, false);
 		    vcam.m_Lens.OrthographicSize = 6;
-		    
-				//to access cam, Lens and then OrthograhicSize
-		    EnterHouse();
-		}
-	}	    	
 
-}
+					//to access cam, Lens and then OrthograhicSize
+		    print("Enter House");
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
+			}
+			}}	    	
 
-void PickUpLight(int count){
-	if (count < 5){
-		Light.intensity = Light.intensity + (0.015f * count);
+
+
+			void PickUpLight(int count){
+				if (count < 5){
+					Light.intensity = Light.intensity + (0.015f * count);
 			//print("Light.intensity"+Light.intensity);
-		Light.range = Light.range + (0.06f * count);
+					Light.range = Light.range + (0.06f * count);
 			//print("Light.range"+Light.range);
-	}
+				}
 
-}
-	IEnumerator EnterHouse(){ //ANIMATION vignette closes slowly
-		if (false){
-			Light.intensity = Light.intensity -(0.015f * count);
-			Light.range = Light.range - 0.05f;
-			MainCamera.GetComponent<CameraController>().ModifyVignette(1f, false);
-			yield return new WaitForSeconds(0.25f);
-			Light.intensity = Light.intensity -(0.015f * count);
-			yield return new WaitForSeconds(0.25f);
-			Light.intensity = Light.intensity -(0.015f * count);
-			yield return new WaitForSeconds(0.25f);
-			Light.intensity = Light.intensity -(0.015f * count);
-			yield return new WaitForSeconds(0.25f);
-		}
-		print("Enter house");
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
-	}
+			}
 
-	private void Flip()
-	{
+
+			private void Flip()
+			{
             // Switch the way the player is labelled as facing.
-		m_FacingRight = !m_FacingRight;
+				m_FacingRight = !m_FacingRight;
 
             // Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
-}
+				Vector3 theScale = transform.localScale;
+				theScale.x *= -1;
+				transform.localScale = theScale;
+			}
+		}
 
 
