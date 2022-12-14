@@ -10,7 +10,7 @@ public class M_vertica : MonoBehaviour
 
     public float Velocidad;
 
-    public Vector3 MoverHacia;
+    private Vector3 MoverHacia;
 
     // Start is called before the first frame update
     void Start()

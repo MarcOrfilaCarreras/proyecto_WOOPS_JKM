@@ -10,6 +10,7 @@ public class playerControls : MonoBehaviour
     private bool moveLeft = false;
     private bool moveRight = false;
     private bool moveUp = false;
+    public bool isOnGround;
 
     private Rigidbody2D rb;
 
@@ -17,12 +18,21 @@ public class playerControls : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        isOnGround = true;
     }
 
     // Update is called once per frame
     void Update()
     {
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "PlataformaMovi") {
+            isOnGround = true;
+        }
+    }
+
 
     private void FixedUpdate()
     {
@@ -36,9 +46,11 @@ public class playerControls : MonoBehaviour
             rb.AddForce((transform.right * speed * Time.fixedDeltaTime * 100f)* -1, ForceMode2D.Force);
         }
 
-        if (moveUp == true)
+        if (moveUp == true && isOnGround)
         {
-            rb.AddForce((Vector2.up * jump * Time.fixedDeltaTime * 100f), ForceMode2D.Force);
+            rb.AddForce((Vector2.up * jump * Time.fixedDeltaTime * 3.5f* 100f), ForceMode2D.Force);
+            isOnGround = false;
+
         }
     }
 
