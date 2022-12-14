@@ -48,8 +48,9 @@ public class playerControls : MonoBehaviour
 
         if (moveUp == true && isOnGround)
         {
+                        isOnGround = false;
+
             rb.AddForce((Vector2.up * jump * Time.fixedDeltaTime * 3.5f* 100f), ForceMode2D.Force);
-            isOnGround = false;
 
         }
     }
