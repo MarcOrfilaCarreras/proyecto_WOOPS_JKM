@@ -8,6 +8,7 @@ TagManager:
   - PickUp
   - PlataformaMovi
   - Ground
+  - Luz
   layers:
   - Default
   - TransparentFX

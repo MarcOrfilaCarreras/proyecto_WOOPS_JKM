@@ -94,7 +94,9 @@ public class fantasmaController : MonoBehaviour
         }
 
         //si es la luz
-        if (other.gameObject.name == "Luz"){
+        //if (other.gameObject.name == "Luz"){
+        if (other.tag == "Luz"){
+
             //ocultamos
             ChangeAlpha(this.GetComponent<Renderer>().material, 0f);
 
