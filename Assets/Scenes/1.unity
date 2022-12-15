@@ -6485,7 +6485,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 94633445}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
@@ -14852,7 +14852,6 @@ MonoBehaviour:
   StardPoint: {fileID: 1911007725}
   Endpoint: {fileID: 1473513054}
   Velocidad: 8
-  MoverHacia: {x: 0, y: 0, z: 0}
 --- !u!1 &1355713107
 GameObject:
   m_ObjectHideFlags: 0
@@ -14938,7 +14937,7 @@ GameObject:
   - component: {fileID: 1364608096}
   m_Layer: 0
   m_Name: TilemapPlataforma
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34164,6 +34163,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2675687817674721815, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ae75d85014913e4468bf8bd06ef8afe3, type: 2}
     - target: {fileID: 4869117480688660843, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -34216,6 +34219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4869117480688660845, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 856011068, guid: ca170406c88b0f147ad3b55dc7eec7cd, type: 3}
     - target: {fileID: 4869117480688660847, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: m_Constraints
       value: 4

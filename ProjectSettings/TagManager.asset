@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - PickUp
   - PlataformaMovi
+  - Ground
+  - Luz
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,6 @@ TagManager:
   - UI
   - PostProcessing
   - Ground
-  - 
   - 
   - 
   - 

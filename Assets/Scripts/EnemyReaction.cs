@@ -5,7 +5,7 @@ using Cinemachine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityStandardAssets.CrossPlatformInput;
-
+using UnityEngine.SceneManagement;
 public class EnemyReaction : MonoBehaviour {
   	// Use this for initialization
 	private Vector2 Home;
@@ -32,30 +32,35 @@ public class EnemyReaction : MonoBehaviour {
         public bool onGround = false;
         public Collider2D floorCollider;
         public ContactFilter2D floorFilter;
-        //private Vector2 touchOrigin = -Vector2.one;//Used to store location of screen touch origin for mobile controls.
+		private GameObject[] PickUpQuantity; //Total number of Pickups
 
-        void Start () {
-        	Home = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        	print("Hello World!");
-        	rb2D = GetComponent<Rigidbody2D>();
-        	Light = GetComponent<Light>();	
-        	m_Anim = GetComponent<Animator>();
-        	Light.intensity = 0;
-        	Light.range = 0.75f;
-        	print("Light.intensity"+Light.intensity);
+		void Start () {
+			print("Hello World!");
 
-        	count = 0;
-        }
+
+			PickUpQuantity = GameObject.FindGameObjectsWithTag("PickUp");
+			print("PickUpQuantity" + PickUpQuantity.Length);
+			Home = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+
+			rb2D = GetComponent<Rigidbody2D>();
+			Light = GetComponent<Light>();	
+			m_Anim = GetComponent<Animator>();
+			Light.intensity = 0;
+			Light.range = 0.75f;
+			print("Light.intensity"+Light.intensity);
+
+			count = 0;
+		}
   // Update is called once per frame
-        void Update () {
+		void Update () {
 
-        	if (/*transform.position.y < -30 ||*/ Input.GetKeyDown("r")){ 
+			if (transform.position.y < -200 || Input.GetKeyDown("r")){ 
     			TeleportHome(Home);//If player falls out of the plane or R, TP -> COORDS HOME
     		}
     		horizontalMovement = Input.GetAxisRaw("Horizontal");
 
     		onGround = floorCollider.IsTouching(floorFilter);
-    		print("JustJumped:"+justJumped + " - onGround:"+onGround);
+    		//print("JustJumped:"+justJumped + " - onGround:"+onGround);
     		if (!justJumped && Input.GetKeyDown(KeyCode.Space) && onGround && rb2D.velocity.y == 0){
     			justJumped = true;
     		}
@@ -65,7 +70,7 @@ public class EnemyReaction : MonoBehaviour {
     	void FixedUpdate(){
     		rb2D.velocity = new Vector2(horizontalMovement * movementSpeed, rb2D.velocity.y);
 
-			float h = CrossPlatformInputManager.GetAxis("Horizontal");
+    		float h = CrossPlatformInputManager.GetAxis("Horizontal");
 
     		m_Anim.SetFloat("Speed", Mathf.Abs(h));
 
@@ -84,8 +89,7 @@ public class EnemyReaction : MonoBehaviour {
             // Set the vertical animation
     		m_Anim.SetFloat("vSpeed", rb2D.velocity.y);
 
-    	// If the input is moving the player and the player is facing the other direction -> FLIP
-
+    		// If the input (KEYBOARD) is moving the player and the player is facing the other direction->FLIP
     		if ((h > 0 && !m_FacingRight) || h < 0 && m_FacingRight){
     			Flip();
     		}     
@@ -106,67 +110,54 @@ public class EnemyReaction : MonoBehaviour {
 			}	
 
     	}else if (other.CompareTag("PickUp")){ //Check if Collider has Tag "Pickup"
-    	count++;
-    	print("PickUp: "+count);
 		    other.gameObject.SetActive(false);//Hides Pickup
 		    PickUpLight(count);
 		    MainCamera.GetComponent<CameraController>().WhenPickUp(count);
-		    if (count % 5 == 0){
-		    	SpawnPointCheck(other.transform.position);
+
+		    count= count + 1;
+		    print("count:"+count);
+
+		    if (count % 5 == 0){ //If count quantity is 5/10/15/20...
+		    	Home = other.transform.position;
+		    	print("Spawn point Updated to ("+other.transform.position+")!");
 		    }
-		    }else if (other.CompareTag("Finish")){
-		    	float num = 1f;
-		    	Light.intensity = 0.05f;
-		    	Light.range = 0.05f;
-		    	MainCamera.GetComponent<CameraController>().ModifyVignette(num, false);
-		    	SpawnPointCheck(other.transform.position);
-	    	vcam.m_Lens.OrthographicSize = 6; //to access cam, Lens and then OrthograhicSize
-
-		    	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
-	    }	    	
-
-	}
-	
-	void SpawnPointCheck(Vector2 position){
-		Home = position;
-		print("Spawn point Updated to ("+position+")!");
-	}
-
-	void PickUpLight(int count){
-		if (count < 5){
-			Light.intensity = Light.intensity + (0.015f * count);
-			print("Light.intensity"+Light.intensity);
-			Light.range = Light.range + (0.06f * count);
-			print("Light.range"+Light.range);
 
 		}
+		else if (other.CompareTag("Finish")){
+		    if (count >=  20){ //IF all Pickups hasn't been picked up yet
+		    float num = 1f; Light.intensity = 0.05f; Light.range = 0.05f;
+		    MainCamera.GetComponent<CameraController>().ModifyVignette(num, false);
+		    vcam.m_Lens.OrthographicSize = 6;
 
-	}
-	
-	IEnumerator EnterHouse(){
-		Light.intensity = Light.intensity -(0.015f * count);
-		Light.range = Light.range - 0.05f;
-		MainCamera.GetComponent<CameraController>().ModifyVignette(1f, false);
-		yield return new WaitForSeconds(0.25f);
-		Light.intensity = Light.intensity -(0.015f * count);
-		yield return new WaitForSeconds(0.25f);
-		Light.intensity = Light.intensity -(0.015f * count);
-		yield return new WaitForSeconds(0.25f);
-		Light.intensity = Light.intensity -(0.015f * count);
-		yield return new WaitForSeconds(0.25f);
+					//to access cam, Lens and then OrthograhicSize
+		    print("Enter House");
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
+			}
+			}}	    	
 
-	}
 
-	private void Flip()
-	{
+
+			void PickUpLight(int count){
+				if (count < 5){
+					Light.intensity = Light.intensity + (0.015f * count);
+			//print("Light.intensity"+Light.intensity);
+					Light.range = Light.range + (0.06f * count);
+			//print("Light.range"+Light.range);
+				}
+
+			}
+
+
+			private void Flip()
+			{
             // Switch the way the player is labelled as facing.
-		m_FacingRight = !m_FacingRight;
+				m_FacingRight = !m_FacingRight;
 
             // Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
-}
+				Vector3 theScale = transform.localScale;
+				theScale.x *= -1;
+				transform.localScale = theScale;
+			}
+		}
 
 
