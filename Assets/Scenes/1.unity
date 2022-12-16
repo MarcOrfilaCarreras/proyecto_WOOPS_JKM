@@ -6464,11 +6464,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-  m_RootOrder: 2
-=======
-  m_RootOrder: 3
->>>>>>> origin/rama_Jan
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &94633446
 MonoBehaviour:
@@ -6559,7 +6555,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200064433
 GameObject:
@@ -14718,11 +14714,7 @@ Transform:
   - {fileID: 1903063756}
   - {fileID: 245181142}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-  m_RootOrder: 4
-=======
-  m_RootOrder: 5
->>>>>>> origin/rama_Jan
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055174803
 GameObject:
@@ -14885,7 +14877,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 999
   m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 933771245}
@@ -14921,7 +14913,7 @@ Transform:
   m_Children:
   - {fileID: 1874901521}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364608092
 GameObject:
@@ -33344,11 +33336,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-  m_RootOrder: 6
-=======
-  m_RootOrder: 0
->>>>>>> origin/rama_Jan
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1430497900
 Animator:
@@ -33797,7 +33785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
 --- !u!1 &1744952618
 GameObject:
   m_ObjectHideFlags: 0
@@ -33827,10 +33814,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> origin/rama_Jan
 --- !u!1 &1874901520
 GameObject:
   m_ObjectHideFlags: 3
@@ -34047,7 +34032,7 @@ Transform:
   - {fileID: 1911007725}
   - {fileID: 1473513054}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1996607381
 GameObject:
@@ -34096,11 +34081,7 @@ Transform:
   - {fileID: 200064434}
   - {fileID: 28252970}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-  m_RootOrder: 5
-=======
-  m_RootOrder: 6
->>>>>>> origin/rama_Jan
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1996607385
 Tilemap:
@@ -34173,11 +34154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4869117480688660844, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 3
-=======
-      value: 4
->>>>>>> origin/rama_Jan
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4869117480688660844, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34227,19 +34204,35 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4869117480688660849, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4869117480688660850, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: vcam
       value: 
       objectReference: {fileID: 1355713108}
     - target: {fileID: 4869117480688660850, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
+      propertyPath: count
+      value: 157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869117480688660850, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869117480688660850, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 94633444}
+    - target: {fileID: 4869117480688660850, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
+      propertyPath: movementSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4869117480688660851, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
-<<<<<<< HEAD
-      propertyPath: jump
-      value: 50
-=======
+      propertyPath: speed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869117480688660851, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -34274,7 +34267,6 @@ PrefabInstance:
     - target: {fileID: 5935983988129655894, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 10
->>>>>>> origin/rama_Jan
       objectReference: {fileID: 0}
     - target: {fileID: 5935983988129655895, guid: 7e877604ec6a97b38872d7bb5a01aa8e, type: 3}
       propertyPath: boton

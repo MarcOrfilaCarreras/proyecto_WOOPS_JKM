@@ -12,6 +12,8 @@ public class playerControls : MonoBehaviour
     private bool moveUp = false;
     public bool isOnGround;
 
+    private Vector2 Home;
+
     private Rigidbody2D rb;
 
     //se ejecuta al principio de la escena
@@ -19,6 +21,8 @@ public class playerControls : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         isOnGround = true;
+                    Home = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+
     }
 
     // Update is called once per frame
@@ -31,6 +35,11 @@ public class playerControls : MonoBehaviour
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "PlataformaMovi") {
             isOnGround = true;
         }
+
+        if (collision.gameObject.tag == "Enemy"){
+            TeleportHome(Home);          
+        }
+
     }
 
 
@@ -71,4 +80,10 @@ public class playerControls : MonoBehaviour
     {
         moveUp = _move;
     }
+
+    void TeleportHome(Vector2 Home){
+        rb.velocity = Vector2.zero; //Freeze character 
+        transform.position = Home; //TP Sphere -> Home
+    }
 }
+

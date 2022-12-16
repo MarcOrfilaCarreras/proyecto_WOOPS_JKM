@@ -72,42 +72,38 @@ public class EnemyReaction : MonoBehaviour {
 
     		float h = CrossPlatformInputManager.GetAxis("Horizontal");
 
-    		m_Anim.SetFloat("Speed", Mathf.Abs(h));
+    		//m_Anim.SetFloat("Speed", Mathf.Abs(h));
 
     		if(justJumped)
     		{
     			rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-    			m_Anim.SetBool("Ground", false);
+    			//m_Anim.SetBool("Ground", false);
     			justJumped = false;
     			if (rb2D.velocity.x == 0 && rb2D.velocity.y != 0 && onGround){
     				justJumped = false;
     			}
 
     		}
-    		m_Anim.SetBool("Ground", onGround);
+    		//m_Anim.SetBool("Ground", onGround);
 
             // Set the vertical animation
-    		m_Anim.SetFloat("vSpeed", rb2D.velocity.y);
+    		//m_Anim.SetFloat("vSpeed", rb2D.velocity.y);
 
     		// If the input (KEYBOARD) is moving the player and the player is facing the other direction->FLIP
     		if ((h > 0 && !m_FacingRight) || h < 0 && m_FacingRight){
     			Flip();
     		}     
     	}
-    	void TeleportHome(Vector3 Home){
+    	void TeleportHome(Vector2 Home){
     	rb2D.velocity = Vector2.zero; //Freeze character 
 		transform.position = Home; //TP Sphere -> Home
 	}
 
   // This function is called every time another collider overlaps the trigger collider
 	void OnTriggerEnter2D (Collider2D other){
-		if (other.CompareTag ("Enemy")) {    // Checking if the overlapped collider is an enemy
+		if (other.CompareTag("Enemy")) {    // Checking if the overlapped collider is an enemy
 			print("ENEMY");
-			if (transform.position.y > (other.transform.position.y+0.6)){
-				Destroy(other.gameObject);
-			}else{
-				TeleportHome(Home);
-			}	
+			//TeleportHome(Home);
 
     	}else if (other.CompareTag("PickUp")){ //Check if Collider has Tag "Pickup"
 		    other.gameObject.SetActive(false);//Hides Pickup
@@ -122,8 +118,7 @@ public class EnemyReaction : MonoBehaviour {
 		    	print("Spawn point Updated to ("+other.transform.position+")!");
 		    }
 
-		}
-		else if (other.CompareTag("Finish")){
+		}else if (other.CompareTag("Finish")){
 		    if (count >=  20){ //IF all Pickups hasn't been picked up yet
 		    float num = 1f; Light.intensity = 0.05f; Light.range = 0.05f;
 		    MainCamera.GetComponent<CameraController>().ModifyVignette(num, false);
@@ -133,7 +128,8 @@ public class EnemyReaction : MonoBehaviour {
 		    print("Enter House");
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//Next Level
 			}
-			}}	    	
+		}
+	}	    	
 
 
 
@@ -154,7 +150,7 @@ public class EnemyReaction : MonoBehaviour {
 				m_FacingRight = !m_FacingRight;
 
             // Multiply the player's x local scale by -1.
-				Vector3 theScale = transform.localScale;
+				Vector2 theScale = transform.localScale;
 				theScale.x *= -1;
 				transform.localScale = theScale;
 			}
