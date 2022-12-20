@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-
+    
     public float attackSpeed = 4;
     public float attackDistance;
     public float bufferDistance;
