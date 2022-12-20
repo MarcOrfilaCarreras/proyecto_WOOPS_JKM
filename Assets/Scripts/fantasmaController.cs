@@ -18,16 +18,13 @@ public class fantasmaController : MonoBehaviour
 	private float opacidad = 1f;
 	private Vector3 posicionOriginal;
 	private DateTime contador;
-
-	[Header("aaaaaaa")]
-	public float attackSpeed = 2;
-	public float attackDistance;
-	public float bufferDistance;
-	public GameObject player;
 	Transform playerTransform;
+Vector3 InitialPos;
+
 
     //se ejecuta al principio de la escena
 	void Start() {
+		InitialPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		GetPlayerTransform();
         //inicializamos las variables
 		maxDistanciaRecorrer = transform.position.x + distanciaRecorrer;
@@ -68,7 +65,9 @@ public class fantasmaController : MonoBehaviour
 			}*/
 
             //movemos al objeto en bucle
-			transform.position = new Vector3(Mathf.PingPong(Time.time * velocidadObjeto, maxDistanciaRecorrer-minDistanciaRecorrer) + minDistanciaRecorrer, transform.position.y, 0);
+			transform.position = new Vector3(Mathf.PingPong(Time.time * velocidadObjeto, maxDistanciaRecorrer-minDistanciaRecorrer) + minDistanciaRecorrer, InitialPos.y, 0);
+			//transform.position.y = InitialPos.y;
+
 		}
 				/*if (!jugadorDetectado){
 					
@@ -109,9 +108,9 @@ public class fantasmaController : MonoBehaviour
 
         void GetPlayerTransform()
         {
-        	if (player != null)
+        	if (jugador != null)
         	{
-        		playerTransform = player.transform;
+        		playerTransform = jugador.transform;
         	}
         	else
         	{
