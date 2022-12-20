@@ -69,7 +69,6 @@ public class fantasmaController : MonoBehaviour
 
             //movemos al objeto en bucle
 			transform.position = new Vector3(Mathf.PingPong(Time.time * velocidadObjeto, maxDistanciaRecorrer-minDistanciaRecorrer) + minDistanciaRecorrer, transform.position.y, 0);
-			print("ping pong bitch");
 		}
 				/*if (!jugadorDetectado){
 					

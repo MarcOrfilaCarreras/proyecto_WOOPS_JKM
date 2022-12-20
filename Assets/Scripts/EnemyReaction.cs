@@ -103,7 +103,8 @@ public class EnemyReaction : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 		if (other.CompareTag("Enemy")) {    // Checking if the overlapped collider is an enemy
 			print("ENEMY");
-			//TeleportHome(Home);
+			TeleportHome(Home);
+            print("enemey p");          
 
     	}else if (other.CompareTag("PickUp")){ //Check if Collider has Tag "Pickup"
 		    other.gameObject.SetActive(false);//Hides Pickup

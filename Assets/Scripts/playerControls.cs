@@ -37,7 +37,8 @@ public class playerControls : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "Enemy"){
-            TeleportHome(Home);          
+            TeleportHome(Home);
+            print("enemey pa casa subrnonal");          
         }
 
     }
