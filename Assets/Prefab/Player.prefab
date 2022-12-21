@@ -56,7 +56,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 2.5
   m_Material: {fileID: 6200000, guid: f90a746ea808716c29f2e6a8d0d0c964, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -127,8 +127,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.06806183}
+  m_Size: {x: 1, y: 2.1361237}
   m_Direction: 0
 --- !u!114 &4869117480688660849
 MonoBehaviour:
@@ -148,7 +148,7 @@ MonoBehaviour:
   checkRadius: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &4869117480688660851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.05
-  m_Range: 0.96
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -270,7 +270,7 @@ Animator:
   m_GameObject: {fileID: 4869117480688660843}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa546b6ee49597c448e497da031903ed, type: 2}
+  m_Controller: {fileID: 9100000, guid: ae75d85014913e4468bf8bd06ef8afe3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0

@@ -4,12 +4,16 @@ public class playerControls : MonoBehaviour
 {
     //variables publicas
     public float speed = 5f;
+
     public float jump = 0;
 
     //variables privadas
     private bool moveLeft = false;
+
     private bool moveRight = false;
+
     private bool moveUp = false;
+
     public bool isOnGround;
 
     private Vector2 Home;
@@ -21,8 +25,9 @@ public class playerControls : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         isOnGround = true;
-                    Home = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-
+        Home =
+            new Vector2(gameObject.transform.position.x,
+                gameObject.transform.position.y);
     }
 
     // Update is called once per frame
@@ -32,36 +37,52 @@ public class playerControls : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "PlataformaMovi") {
+        if (
+            collision.gameObject.tag == "Ground" ||
+            collision.gameObject.tag == "PlataformaMovi"
+        )
+        {
             isOnGround = true;
         }
 
-        if (collision.gameObject.tag == "Enemy"){
-            TeleportHome(Home);
-            print("enemey pa casa subrnonal");          
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TeleportHome (Home);
+            print("enemey pa casa subrnonal");
         }
-
     }
-
 
     private void FixedUpdate()
     {
         if (moveLeft == true)
         {
-            rb.AddForce((transform.right * speed * Time.fixedDeltaTime * 100f) * -1, ForceMode2D.Force);
+            rb
+                .AddForce((
+                transform.right * speed * Time.fixedDeltaTime * 100f
+                ) *
+                -1,
+                ForceMode2D.Force);
         }
 
         if (moveRight == true)
         {
-            rb.AddForce((transform.right * speed * Time.fixedDeltaTime * 100f)* -1, ForceMode2D.Force);
+            rb
+                .AddForce((
+                transform.right * speed * Time.fixedDeltaTime * 100f
+                ) *
+                -1,
+                ForceMode2D.Force);
         }
 
         if (moveUp == true && isOnGround)
         {
-                        isOnGround = false;
+            isOnGround = false;
 
-            rb.AddForce((Vector2.up * jump * Time.fixedDeltaTime * 3.5f* 100f), ForceMode2D.Force);
-
+            rb
+                .AddForce((
+                Vector2.up * jump * Time.fixedDeltaTime * 3.5f * 100f
+                ),
+                ForceMode2D.Force);
         }
     }
 
@@ -82,9 +103,9 @@ public class playerControls : MonoBehaviour
         moveUp = _move;
     }
 
-    void TeleportHome(Vector2 Home){
-        rb.velocity = Vector2.zero; //Freeze character 
+    void TeleportHome(Vector2 Home)
+    {
+        rb.velocity = Vector2.zero; //Freeze character
         transform.position = Home; //TP Sphere -> Home
     }
 }
-

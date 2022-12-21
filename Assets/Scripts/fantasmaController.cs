@@ -79,13 +79,18 @@ public class fantasmaController : MonoBehaviour
         maxDistanciaRecorrer);
 
         if (
-            ((transform.position.x+0.2) >= maxDistanciaRecorrer && _moveRight) ||
-            ((transform.position.x-0.2) <= minDistanciaRecorrer && !_moveRight) 
+            (
+            (transform.position.x + 0.2) >= maxDistanciaRecorrer && _moveRight
+            ) ||
+            (
+            (transform.position.x - 0.2) <= minDistanciaRecorrer && !_moveRight
+            )
         )
         {
             Flip();
-			_moveRight = !_moveRight;
+            _moveRight = !_moveRight;
         }
+
         //movemos al objeto en bucle
         transform.position =
             new Vector3(Mathf
@@ -130,16 +135,15 @@ public class fantasmaController : MonoBehaviour
                 contador = System.DateTime.Now;
             }
         }
-
-        //si es la luz
-        //if (other.gameObject.name == "Luz"){
+        else //si es la luz
         if (other.tag == "Luz")
         {
             //ocultamos
             ChangeAlpha(this.GetComponent<Renderer>().material, 0f);
-
+            transform.position = new Vector3(-100, -100, 0);
+            gameObject.SetActive(false);
             //destruimos
-            Destroy(this);
+            Destroy (gameObject);
         }
     }
 
