@@ -156,7 +156,7 @@ public class EnemyReaction : MonoBehaviour
         }
         else if (other.CompareTag("Finish"))
         {
-            if (count >= 20)
+            if (count >= PickUpQuantity.Length)
             {
                 //IF all Pickups hasn't been picked up yet
                 float num = 1f;
@@ -168,9 +168,17 @@ public class EnemyReaction : MonoBehaviour
                 vcam.m_Lens.OrthographicSize = 6;
 
                 //to access cam, Lens and then OrthograhicSize
-                print("Enter House");
-                SceneManager
-                    .LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Next Level
+                if (SceneManager.GetActiveScene().buildIndex != 2)
+                {
+                    print("Enter House");
+                    SceneManager
+                        .LoadScene(SceneManager.GetActiveScene().buildIndex +
+                        1); //Next Level
+                }
+                else
+                {
+                    SceneManager.LoadScene(0); //Main Menu
+                }
             }
         }
     }
