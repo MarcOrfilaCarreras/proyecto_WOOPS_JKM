@@ -21657,10 +21657,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2919733276531972934, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -433802736, guid: c905ea3ac7158bd169f851322032020f, type: 3}
     - target: {fileID: 2919733276531972952, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -21669,26 +21665,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 933771250}
-    - target: {fileID: 2919733276531972952, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733276531972952, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733276531972952, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: playerControls, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733276531972952, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: playerControls, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733276599735883, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 703244946, guid: c905ea3ac7158bd169f851322032020f, type: 3}
     - target: {fileID: 2919733276599735885, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -21697,26 +21673,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 933771250}
-    - target: {fileID: 2919733276599735885, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733276599735885, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733276599735885, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: playerControls, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733276599735885, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: playerControls, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733277252583945, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -521278619, guid: c905ea3ac7158bd169f851322032020f, type: 3}
     - target: {fileID: 2919733277252583947, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -21725,30 +21681,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 933771250}
-    - target: {fileID: 2919733277252583947, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733277252583947, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733277252583947, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: playerControls, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733277252583947, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: playerControls, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733277252583947, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919733277291201536, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: faa5b563b56204069a848ce8ab76dd16, type: 3}
     - target: {fileID: 2919733277295924020, guid: b25a12320e1b43e58bfc0610ec2ef5a0, type: 3}
       propertyPath: m_Name
       value: Controles

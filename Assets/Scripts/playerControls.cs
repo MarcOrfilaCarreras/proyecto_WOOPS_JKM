@@ -48,12 +48,12 @@ public class playerControls : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             TeleportHome (Home);
-            print("enemey pa casa subrnonal");
         }
     }
 
     private void FixedUpdate()
     {
+       
         if (moveLeft == true)
         {
             rb
@@ -88,18 +88,24 @@ public class playerControls : MonoBehaviour
 
     public void MoveLeft(bool _move)
     {
+        print("moveLeft");
+
         moveLeft = _move;
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     public void MoveRight(bool _move)
     {
+        print("MoveRight" );
+
         moveRight = _move;
         transform.eulerAngles = new Vector3(0, 180, 0);
     }
 
     public void MoveUp(bool _move)
     {
+        print("MoveUp" );
+
         moveUp = _move;
     }
 
